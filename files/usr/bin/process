@@ -1,0 +1,18 @@
+#!/bin/bash
+
+set -e
+
+function fail() {
+  echo "$@" >&2 && exit 1
+}
+
+[ -z "${INPUT_SOURCE}" ] && fail 'missing ${INPUT_SOURCE}'
+[ -z "${OUTPUT_SHP}" ] && fail 'missing ${OUTPUT_SHP}'
+
+mv "${INPUT_SOURCE}" "${INPUT_SOURCE}.tif"
+
+gdal_contour -a elev ${INPUT_SOURCE}.tif output_shp.shp -i 10.0
+
+zip output_shp.zip ./output_shp.*
+
+mv output_shp.zip "${OUTPUT_SHP}"

@@ -1,0 +1,54 @@
+{
+  "processDescription": {
+    "process": {
+      "id": "gdal_raster_contour",
+      "title": "gdal raster conotour",
+      "description": "Calculation of contours from a tif file using gdal",
+      "version": "1.0.0",
+      "keywords": ["gdal", "contour", "raster"],
+      "inputs": [
+        {
+          "id": "source",
+          "title": "Source Input Image",
+          "description": "Source Input Image",
+          "minOccurs": 1,
+          "maxOccurs": 1,
+          "input": {
+            "formats": [
+              {
+                "mimeType": "image/tiff",
+                "default": true
+              }
+            ]
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "id": "shp",
+          "title": "The shapefile containing the countours",
+          "output": {
+            "formats": [
+              {
+                "mimeType": "application/x-zipped-shp",
+                "default": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "jobControlOptions": ["async-execute"],
+    "outputTransmission": ["reference"]
+  },
+  "immediateDeployment": true,
+  "executionUnit": [
+    {
+      "unit": {
+        "type": "docker",
+        "image": "localhost:5000/gdal_raster_contour:latest"
+      }
+    }
+  ],
+  "deploymentProfileName": "http://www.opengis.net/profiles/eoc/dockerizedApplication"
+}
