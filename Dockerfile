@@ -1,6 +1,7 @@
 FROM osgeo/gdal
 
-ENV INPUT_SOURCE=http://geoprocessing.demo.52north.org:8080/xyz/raster2vector.tif \ 
+ENV INPUT_SOURCE= \
+    INPUT_ELEVATION-INTERVAL=10 \
     OUTPUT_SHP=
 
 RUN set -ex \

@@ -21,7 +21,28 @@
               }
             ]
           }
-        }
+        },
+		{
+			"id": "elevation-interval",
+			"title": "Elevation interval",
+			"description": "Elevation interval",
+			"minOccurs": 1,
+			"maxOccurs": 1,
+			"input": {
+				"literalDataDomains": [
+					{
+						"valueDefinition": {
+							"anyValue": true
+						},
+						"defaultValue": "",
+						"dataType": {
+							"name": "int",
+							"reference": "https://www.w3.org/2001/XMLSchema-datatypes#int"
+						}
+					}
+				]
+			}
+		}
       ],
       "outputs": [
         {

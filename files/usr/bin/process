@@ -11,7 +11,7 @@ function fail() {
 
 mv "${INPUT_SOURCE}" "${INPUT_SOURCE}.tif"
 
-gdal_contour -a elev ${INPUT_SOURCE}.tif output_shp.shp -i 10.0
+gdal_contour -a elev ${INPUT_SOURCE}.tif output_shp.shp -i ${INPUT_ELEVATION-INTERVAL}
 
 zip output_shp.zip ./output_shp.*
 
